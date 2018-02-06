@@ -1,6 +1,5 @@
 package edu.javacourse.contact.config;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
@@ -19,9 +18,9 @@ public class GlobalConfig
     // Если имя null или пустое - берем файл по умолчанию.
     public static void initGlobalConfig(String name) throws IOException {
         if (name != null && !name.trim().isEmpty()) {
-            GLOBAL_COFIG.load(new FileReader(name));
+            GLOBAL_COFIG.load(GlobalConfig.class.getClassLoader().getResourceAsStream(name));
         } else {
-            GLOBAL_COFIG.load(new FileReader(CONFIG_NAME));
+            GLOBAL_COFIG.load(GlobalConfig.class.getClassLoader().getResourceAsStream(CONFIG_NAME));
         }
     }
 

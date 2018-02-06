@@ -15,7 +15,7 @@ public class ComboConnectionBuilder implements ConnectionBuilder
         try {
             dataSource = new ComboPooledDataSource();
             dataSource.setDriverClass(GlobalConfig.getProperty("db.driver.class"));
-            dataSource.setJdbcUrl(GlobalConfig.getProperty("db.url"));
+            dataSource.setJdbcUrl(GlobalConfig.getProperty("db.url").replace("true", "false"));
             dataSource.setUser(GlobalConfig.getProperty("db.login"));
             dataSource.setPassword(GlobalConfig.getProperty("db.password"));
             dataSource.setMaxPoolSize(20);

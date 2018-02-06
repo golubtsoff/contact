@@ -2,3 +2,4 @@
 AccountDatabase
 *.log
 *.iml
+target

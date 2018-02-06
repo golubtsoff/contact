@@ -2,10 +2,8 @@ package edu.javacourse.contact.dao;
 
 import edu.javacourse.contact.entity.Contact;
 import edu.javacourse.contact.exception.ContactDaoException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -31,7 +29,7 @@ public class ContactDbDAO implements ContactDAO
     @Override
     public Long addContact(Contact contact) throws ContactDaoException {
         try (Connection con = getConnection();
-                PreparedStatement pst = con.prepareStatement(INSERT, new String[]{"contact_id"})) {
+                PreparedStatement pst = con.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)) {
             Long contactId = -1L;
             pst.setString(1, contact.getFirstName());
             pst.setString(2, contact.getLastName());
@@ -40,7 +38,7 @@ public class ContactDbDAO implements ContactDAO
             pst.executeUpdate();
             ResultSet gk = pst.getGeneratedKeys();
             if (gk.next()) {
-                contactId = gk.getLong("contact_id");
+                contactId = gk.getLong(1);
             }
             gk.close();
             return contactId;
