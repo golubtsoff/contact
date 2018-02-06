@@ -1,4 +1,4 @@
-package edu.javacourse.contact.dao;
+package edu.javacourse.contact.dao.builder;
 
 import java.sql.Connection;
 import java.sql.SQLException;

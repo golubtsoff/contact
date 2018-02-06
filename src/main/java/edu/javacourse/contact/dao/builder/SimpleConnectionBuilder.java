@@ -1,4 +1,4 @@
-package edu.javacourse.contact.dao;
+package edu.javacourse.contact.dao.builder;
 
 import edu.javacourse.contact.config.GlobalConfig;
 import java.sql.Connection;

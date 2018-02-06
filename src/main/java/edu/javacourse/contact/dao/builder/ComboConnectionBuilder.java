@@ -1,4 +1,4 @@
-package edu.javacourse.contact.dao;
+package edu.javacourse.contact.dao.builder;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import edu.javacourse.contact.config.GlobalConfig;

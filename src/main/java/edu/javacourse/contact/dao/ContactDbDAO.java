@@ -1,5 +1,7 @@
 package edu.javacourse.contact.dao;
 
+import edu.javacourse.contact.dao.builder.ConnectionBuilder;
+import edu.javacourse.contact.dao.builder.ConnectionBuilderFactory;
 import edu.javacourse.contact.entity.Contact;
 import edu.javacourse.contact.exception.ContactDaoException;
 
